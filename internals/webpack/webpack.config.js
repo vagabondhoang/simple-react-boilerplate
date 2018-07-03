@@ -1,4 +1,5 @@
 const path = require('path')
+const DotenvPlugin = require('dotenv-webpack')
 
 const parentDir = path.join(__dirname, '../')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -58,6 +59,10 @@ module.exports = {
     ],
   },
   plugins: [
+    new DotenvPlugin({
+      path: './.env',
+      safe: false,
+    }),
     // Minify and optimize the index.html
     new HtmlWebpackPlugin({
       template: 'index.html',
